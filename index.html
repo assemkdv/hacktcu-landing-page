@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HackTCU 2026</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="./img/icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#prepare">Prepare</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#resources">Resources</a></li>
+        <li><a href="#rsvp">RSVP</a></li>
+        <li><button id="theme-button">Toggle Dark Mode</button></li>
+    </ul>
+</div>
+
+<!-- HEADER -->
+<div class="header-container">
+    <div class="header-item">
+        <h1>HackTCU 2026</h1>
+        <h3>Build. Innovate. Compete.</h3>
+    </div>
+
+    <div class="header-item">
+        <button class="header-button">Register Now</button>
+        <button class="header-button">View Schedule</button>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+    <h2>About the event</h2>
+    <p>
+        HackTCU is a high-energy hackathon where students build, innovate, and bring ideas to life.
+        Work in teams, learn new skills, and compete to create something amazing in just 24 hours.
+        Whether you're new or experienced, this is your chance to code, collaborate, and stand out.
+    </p>
+
+    <h3>What to Expect</h3>
+    <ul>
+        <li><b>Teamwork:</b> Collaborate with other students</li>
+        <li><b>Learning:</b> Gain new technical skills</li>
+        <li><b>Competition:</b> Build something amazing</li>
+    </ul>
+</section>
+
+<!-- PREPARE -->
+<section id="prepare">
+    <h2>Prepare for HackTCU</h2>
+    <p>Learn what hackathons are and how to succeed!</p>
+    
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/rZ3U5orRAGU"></iframe>
+        <iframe src="https://www.youtube.com/embed/PRw5FPSrDvo"></iframe>
+    </div>
+</section>
+
+<!-- SCHEDULE -->
+<section id="schedule">
+  <h2>Event Schedule</h2>
+
+  <div class="schedule-container">
+
+    <div class="schedule-item">
+      <img src="./img/opening.jpg">
+      <h3>Opening Ceremony</h3>
+      <p>Kick off HackTCU</p>
+    </div>
+
+    <div class="schedule-item">
+      <img src="./img/coding.jpg">
+      <h3>Coding Begins</h3>
+      <p>Start building projects</p>
+    </div>
+
+    <div class="schedule-item">
+      <img src="./img/workshop.jpg">
+      <h3>Workshops</h3>
+      <p>Learn and improve</p>
+    </div>
+
+    <div class="schedule-item">
+      <img src="./img/presentation.jpg">
+      <h3>Final Presentations</h3>
+      <p>Present projects to judges</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section id="resources">
+  <h2>Resources</h2>
+
+  <a class="block" href="https://mlh.io/">
+    <article>
+      <h3>Major League Hacking</h3>
+      <p>The official hub for student hackathons.</p>
+    </article>
+  </a>
+
+  <a class="block" href="https://www.hackerearth.com/blog/developers/how-to-win-a-hackathon/">
+    <article>
+      <h3>How to Win a Hackathon</h3>
+      <p>Tips on teamwork and building strong projects.</p>
+    </article>
+  </a>
+</section>
+
+<!-- RSVP -->
+<section id="rsvp">
+  <h2>RSVP</h2>
+
+  <div class="rsvp-container">
+    
+    <div class="rsvp-para">
+      Ready to build something amazing?  
+      Join HackTCU 2026 and collaborate with other students to create, innovate, and compete in a 24-hour hackathon.  
+      Sign up now to secure your spot!
+    </div>
+
+    <div class="rsvp-participants" id="participants">
+      <p>Anne from RICE is attending</p>
+      <p>Ava from Wellesley is attending</p>
+      <p>Ben from SMU is attending</p>
+    </div>
+
+  </div>
+
+  <form id="rsvp-form">
+
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="school">School:</label>
+      <input type="text" id="school" required>
+    </div>
+
+    <button type="button" id="submit-btn">Submit RSVP</button>
+
+  </form>
+</section>
+
+<!-- SUCCESS MODAL -->
+<div id="success-modal" class="modal">
+  <div class="modal-container">
+    <p id="modal-text"></p>
+    <img src="./img/coding.jpg" width="200">
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    <p>© 2026 HackTCU | Built for students</p>
+</div>
+
+<!-- JS -->
+<script src="index.js"></script>
+
+</body>
+</html>
