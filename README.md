@@ -7,7 +7,7 @@ This is a responsive website I built for HackTCU 2026 as part of my project for 
 - Dark mode toggle
 - RSVP form with validation
 - Live participant list that updates when you submit
-- Confirmation popup after submitting the form
+- Confirmation pop-up after submitting the form
 - Mobile-friendly layout
 - Embedded videos and event info sections
 
@@ -23,11 +23,6 @@ The goal of this project was to create an event landing page that is both visual
 
 ## What I Would Improve
 
-If I had more time, I would:
 - Save RSVP data so it doesn't reset on refresh
 - Improve the mobile navigation (like adding a menu)
 - Add more animations to make the site feel smoother
-
-## Author
-
-Assem Kadirova
