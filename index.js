@@ -1,112 +1,174 @@
 /*** DARK MODE ***/
 
-// Select the theme button
-let themeButton = document.getElementById("theme-button");
+const themeButton = document.getElementById("theme-button");
 
-// Toggle dark mode
 const toggleDarkMode = () => {
-    document.body.classList.toggle("dark-mode");
+    const isDark = document.body.classList.toggle("dark-mode");
+    themeButton.textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
 };
 
-// Event listener for dark mode
 if (themeButton) {
     themeButton.addEventListener("click", toggleDarkMode);
 }
 
 
-/*** RSVP FORM HANDLING ***/
+/*** HAMBURGER MENU ***/
 
-// Get the submit button
-let button = document.getElementById("submit-btn");
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("nav-links");
 
-// Function to add participant (USES OBJECT NOW)
-function addParticipant(person) {
-
-    let newParticipant = document.createElement("p");
-    newParticipant.textContent = `${person.name} from ${person.school} is attending`;
-
-    let participantsDiv = document.getElementById("participants");
-    participantsDiv.appendChild(newParticipant);
+if (hamburger) {
+    hamburger.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
+        hamburger.classList.toggle("open", isOpen);
+        hamburger.setAttribute("aria-expanded", String(isOpen));
+    });
 }
+
+navLinks?.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        hamburger?.classList.remove("open");
+        hamburger?.setAttribute("aria-expanded", "false");
+    });
+});
+
+
+
+/*** SCROLL FADE-IN ANIMATIONS ***/
+
+const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll(".fade-in").forEach(el => fadeObserver.observe(el));
+
+
+/*** ACTIVE NAV LINK ON SCROLL ***/
+
+const sections = document.querySelectorAll("section[id]");
+const navAnchors = document.querySelectorAll(".navbar a[href^='#']");
+
+const updateActiveNav = () => {
+    let current = "";
+    sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 130) {
+            current = section.id;
+        }
+    });
+    navAnchors.forEach(a => {
+        a.classList.toggle("active", a.getAttribute("href") === `#${current}`);
+    });
+};
+
+window.addEventListener("scroll", updateActiveNav, { passive: true });
+
+
+/*** CTA BUTTONS ***/
+
+document.getElementById("register-btn")?.addEventListener("click", () => {
+    document.getElementById("rsvp").scrollIntoView({ behavior: "smooth" });
+});
+
+document.getElementById("schedule-btn")?.addEventListener("click", () => {
+    document.getElementById("schedule").scrollIntoView({ behavior: "smooth" });
+});
+
+
+/*** RSVP FORM & PARTICIPANTS ***/
+
+const STORAGE_KEY = "hacktcu_participants";
+
+const loadParticipants = () => {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    saved.forEach(person => addParticipant(person, false));
+};
+
+function addParticipant(person, save = true) {
+    const p = document.createElement("p");
+    p.textContent = `${person.name} from ${person.school} is attending`;
+    document.getElementById("participants").appendChild(p);
+
+    if (save) {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+        saved.push(person);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+    }
+}
+
+loadParticipants();
 
 
 /*** FORM VALIDATION ***/
 
 const validateForm = () => {
+    let hasErrors = false;
+    const rsvpInputs = document.getElementById("rsvp-form").elements;
 
-    let containsErrors = false;
-
-    let rsvpInputs = document.getElementById("rsvp-form").elements;
-
-    // Loop through inputs
     for (let i = 0; i < rsvpInputs.length; i++) {
-
-        let input = rsvpInputs[i];
-
-        // Skip button
+        const input = rsvpInputs[i];
         if (input.type === "button") continue;
 
         if (input.value.trim().length < 2) {
-            containsErrors = true;
+            hasErrors = true;
             input.classList.add("error");
         } else {
             input.classList.remove("error");
         }
     }
 
-    // Check email format
-    let email = document.getElementById("email");
-
+    const email = document.getElementById("email");
     if (!email.value.includes("@")) {
-        containsErrors = true;
+        hasErrors = true;
         email.classList.add("error");
     } else {
         email.classList.remove("error");
     }
 
-    // If no errors → create object + add participant + show modal
-    if (containsErrors === false) {
-
-        let person = {
-            name: document.getElementById("name").value.trim(),
-            email: document.getElementById("email").value.trim(),
+    if (!hasErrors) {
+        const person = {
+            name:   document.getElementById("name").value.trim(),
+            email:  document.getElementById("email").value.trim(),
             school: document.getElementById("school").value.trim()
         };
 
         addParticipant(person);
-        toggleModal(person);
+        showModal(person);
 
-        // Clear inputs
         for (let i = 0; i < rsvpInputs.length; i++) {
-            if (rsvpInputs[i].type !== "button") {
-                rsvpInputs[i].value = "";
-            }
+            if (rsvpInputs[i].type !== "button") rsvpInputs[i].value = "";
         }
     }
 };
 
+document.getElementById("submit-btn")?.addEventListener("click", validateForm);
+
 
 /*** SUCCESS MODAL ***/
 
-const toggleModal = (person) => {
+let modalTimer;
 
-    let modal = document.getElementById("success-modal");
-    let modalText = document.getElementById("modal-text");
-
-    // Show modal
+const showModal = (person) => {
+    const modal = document.getElementById("success-modal");
+    document.getElementById("modal-text").textContent =
+        `🎉 Thanks for RSVPing, ${person.name}! We'll see you at HackTCU!`;
     modal.style.display = "flex";
 
-    // Personalized message
-    modalText.textContent = `🎉 Thanks for RSVPing, ${person.name}! We’ll see you at HackTCU!`;
-
-    // Hide after 5 seconds
-    setTimeout(() => {
-        modal.style.display = "none";
-    }, 5000);
+    clearTimeout(modalTimer);
+    modalTimer = setTimeout(closeModal, 5000);
 };
 
+const closeModal = () => {
+    clearTimeout(modalTimer);
+    document.getElementById("success-modal").style.display = "none";
+};
 
-// Event listener
-if (button) {
-    button.addEventListener("click", validateForm);
-}
+document.getElementById("modal-close")?.addEventListener("click", closeModal);
+
+document.getElementById("success-modal")?.addEventListener("click", (e) => {
+    if (e.target === e.currentTarget) closeModal();
+});

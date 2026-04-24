@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="HackTCU 2026 — A 24-hour student hackathon. Build, Innovate, Compete. May 15–16 at TCU.">
     <title>HackTCU 2026</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="./img/icon.png">
@@ -9,35 +11,39 @@
 </head>
 
 <body>
+<a href="#about" class="skip-link">Skip to main content</a>
 
 <!-- NAVBAR -->
-<div class="navbar">
-    <ul>
+<nav class="navbar">
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+    <ul id="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#prepare">Prepare</a></li>
         <li><a href="#schedule">Schedule</a></li>
         <li><a href="#resources">Resources</a></li>
         <li><a href="#rsvp">RSVP</a></li>
-        <li><button id="theme-button">Toggle Dark Mode</button></li>
+        <li><button id="theme-button">🌙 Dark Mode</button></li>
     </ul>
-</div>
+</nav>
 
 <!-- HEADER -->
 <div class="header-container">
     <div class="header-item">
-        <h1>HackTCU 2026</h1>
+<h1>HackTCU 2026</h1>
         <h3>Build. Innovate. Compete.</h3>
     </div>
 
     <div class="header-item">
-        <button class="header-button">Register Now</button>
-        <button class="header-button">View Schedule</button>
+        <button class="header-button" id="register-btn">Register Now</button>
+        <button class="header-button" id="schedule-btn">View Schedule</button>
     </div>
 </div>
 
 <!-- ABOUT -->
-<section id="about">
-    <h2>About the event</h2>
+<section id="about" class="fade-in">
+    <h2>About the Event</h2>
     <p>
         HackTCU is a high-energy hackathon where students build, innovate, and bring ideas to life.
         Work in teams, learn new skills, and compete to create something amazing in just 24 hours.
@@ -46,129 +52,134 @@
 
     <h3>What to Expect</h3>
     <ul>
-        <li><b>Teamwork:</b> Collaborate with other students</li>
-        <li><b>Learning:</b> Gain new technical skills</li>
-        <li><b>Competition:</b> Build something amazing</li>
+        <li><b>Teamwork:</b> Build with people you just met — some of the best projects start that way</li>
+        <li><b>Learning:</b> Pick up new skills through workshops, mentors, and just figuring things out</li>
+        <li><b>Competition:</b> Demo what you built to real judges and compete for prizes</li>
     </ul>
 </section>
 
 <!-- PREPARE -->
-<section id="prepare">
+<section id="prepare" class="fade-in">
     <h2>Prepare for HackTCU</h2>
     <p>Learn what hackathons are and how to succeed!</p>
-    
+
     <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/rZ3U5orRAGU"></iframe>
-        <iframe src="https://www.youtube.com/embed/PRw5FPSrDvo"></iframe>
+        <iframe src="https://www.youtube.com/embed/rZ3U5orRAGU" title="What is a Hackathon?" loading="lazy" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/PRw5FPSrDvo" title="How to Succeed at a Hackathon" loading="lazy" allowfullscreen></iframe>
     </div>
 </section>
 
 <!-- SCHEDULE -->
-<section id="schedule">
-  <h2>Event Schedule</h2>
+<section id="schedule" class="fade-in">
+    <h2>Event Schedule</h2>
 
-  <div class="schedule-container">
+    <div class="schedule-container">
 
-    <div class="schedule-item">
-      <img src="./img/opening.jpg">
-      <h3>Opening Ceremony</h3>
-      <p>Kick off HackTCU</p>
+        <div class="schedule-item">
+            <img src="./img/opening.jpg" alt="Opening Ceremony" loading="lazy">
+            <div class="schedule-time">Sat · 9:00 AM</div>
+            <h3>Opening Ceremony</h3>
+            <p>Kick off HackTCU with introductions and team formation</p>
+        </div>
+
+        <div class="schedule-item">
+            <img src="./img/coding.jpg" alt="Coding begins" loading="lazy">
+            <div class="schedule-time">Sat · 11:00 AM</div>
+            <h3>Coding Begins</h3>
+            <p>24 hours of building — the clock starts now</p>
+        </div>
+
+        <div class="schedule-item">
+            <img src="./img/workshop.jpg" alt="Workshops" loading="lazy">
+            <div class="schedule-time">Sat · 2:00 PM</div>
+            <h3>Workshops</h3>
+            <p>Learn from industry experts and mentors</p>
+        </div>
+
+        <div class="schedule-item">
+            <img src="./img/presentation.jpg" alt="Final Presentations" loading="lazy">
+            <div class="schedule-time">Sun · 11:00 AM</div>
+            <h3>Final Presentations</h3>
+            <p>Present your project to judges and win prizes</p>
+        </div>
+
     </div>
-
-    <div class="schedule-item">
-      <img src="./img/coding.jpg">
-      <h3>Coding Begins</h3>
-      <p>Start building projects</p>
-    </div>
-
-    <div class="schedule-item">
-      <img src="./img/workshop.jpg">
-      <h3>Workshops</h3>
-      <p>Learn and improve</p>
-    </div>
-
-    <div class="schedule-item">
-      <img src="./img/presentation.jpg">
-      <h3>Final Presentations</h3>
-      <p>Present projects to judges</p>
-    </div>
-
-  </div>
 </section>
 
 <!-- RESOURCES -->
-<section id="resources">
-  <h2>Resources</h2>
+<section id="resources" class="fade-in">
+    <h2>Resources</h2>
 
-  <a class="block" href="https://mlh.io/">
-    <article>
-      <h3>Major League Hacking</h3>
-      <p>The official hub for student hackathons.</p>
-    </article>
-  </a>
+    <a class="block" href="https://mlh.io/" target="_blank" rel="noopener noreferrer">
+        <article>
+            <h3>Major League Hacking</h3>
+            <p>The official hub for student hackathons.</p>
+        </article>
+    </a>
 
-  <a class="block" href="https://www.hackerearth.com/blog/developers/how-to-win-a-hackathon/">
-    <article>
-      <h3>How to Win a Hackathon</h3>
-      <p>Tips on teamwork and building strong projects.</p>
-    </article>
-  </a>
+    <a class="block" href="https://www.hackerearth.com/blog/developers/how-to-win-a-hackathon/" target="_blank" rel="noopener noreferrer">
+        <article>
+            <h3>How to Win a Hackathon</h3>
+            <p>Tips on teamwork and building strong projects.</p>
+        </article>
+    </a>
 </section>
 
 <!-- RSVP -->
-<section id="rsvp">
-  <h2>RSVP</h2>
+<section id="rsvp" class="fade-in">
+    <h2>RSVP</h2>
 
-  <div class="rsvp-container">
-    
-    <div class="rsvp-para">
-      Ready to build something amazing?  
-      Join HackTCU 2026 and collaborate with other students to create, innovate, and compete in a 24-hour hackathon.  
-      Sign up now to secure your spot!
+    <div class="rsvp-container">
+
+        <div class="rsvp-para">
+            Ready to build something amazing?
+            Join HackTCU 2026 and collaborate with other students to create, innovate, and compete in a 24-hour hackathon.
+            Sign up now to secure your spot!
+        </div>
+
+        <div class="rsvp-participants" id="participants">
+            <p>Anne from RICE is attending</p>
+            <p>Ava from Wellesley is attending</p>
+            <p>Ben from SMU is attending</p>
+        </div>
+
     </div>
 
-    <div class="rsvp-participants" id="participants">
-      <p>Anne from RICE is attending</p>
-      <p>Ava from Wellesley is attending</p>
-      <p>Ben from SMU is attending</p>
-    </div>
+    <form id="rsvp-form">
 
-  </div>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" aria-label="Your full name" required>
+        </div>
 
-  <form id="rsvp-form">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" aria-label="Your email address" required>
+        </div>
 
-    <div class="form-group">
-      <label for="name">Name:</label>
-      <input type="text" id="name" required>
-    </div>
+        <div class="form-group">
+            <label for="school">School:</label>
+            <input type="text" id="school" aria-label="Your school or university" required>
+        </div>
 
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" id="email" required>
-    </div>
+        <button type="button" id="submit-btn">Submit RSVP</button>
 
-    <div class="form-group">
-      <label for="school">School:</label>
-      <input type="text" id="school" required>
-    </div>
-
-    <button type="button" id="submit-btn">Submit RSVP</button>
-
-  </form>
+    </form>
 </section>
 
 <!-- SUCCESS MODAL -->
-<div id="success-modal" class="modal">
-  <div class="modal-container">
-    <p id="modal-text"></p>
-    <img src="./img/coding.jpg" width="200">
-  </div>
+<div id="success-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-text">
+    <div class="modal-container">
+        <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
+        <p id="modal-text"></p>
+        <img src="./img/coding.jpg" alt="Hackathon coding" width="200">
+    </div>
 </div>
 
 <!-- FOOTER -->
-<div class="footer">
+<footer class="footer">
     <p>© 2026 HackTCU | Built for students</p>
-</div>
+</footer>
 
 <!-- JS -->
 <script src="index.js"></script>
