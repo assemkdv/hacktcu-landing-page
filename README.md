@@ -20,9 +20,3 @@ This is a responsive website I built for HackTCU 2026 as part of my project for 
 ## About the Project
 
 The goal of this project was to create an event landing page that is both visually clean and interactive. I focused on making the site easy to navigate while also adding functionality like form validation and dynamic content updates using JavaScript.
-
-## What I Would Improve
-
-- Save RSVP data so it doesn't reset on refresh
-- Improve the mobile navigation (like adding a menu)
-- Add more animations to make the site feel smoother
