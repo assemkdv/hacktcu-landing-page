@@ -6,7 +6,6 @@ This is a responsive website I built for HackTCU 2026 as part of my project for 
 
 - Dark mode toggle
 - RSVP form with validation
-- Live participant list that updates when you submit
 - Confirmation pop-up after submitting the form
 - Mobile-friendly layout
 - Embedded videos and event info sections
