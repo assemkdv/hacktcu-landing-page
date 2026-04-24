@@ -165,21 +165,6 @@ button:hover {
     transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* EVENT BADGE */
-.event-badge {
-    display: inline-block;
-    background: rgba(77, 44, 145, 0.1);
-    color: #4d2c91;
-    border: 1px solid rgba(77, 44, 145, 0.25);
-    padding: 5px 14px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 12px;
-    letter-spacing: 0.4px;
-}
-
-
 /* LAYOUT */
 section {
     max-width: 1000px;
@@ -429,12 +414,6 @@ img, iframe {
 .dark-mode h3,
 .dark-mode p {
     color: #e9e6ff;
-}
-
-.dark-mode .event-badge {
-    background: rgba(196, 181, 253, 0.12);
-    color: #c4b5fd;
-    border-color: rgba(196, 181, 253, 0.3);
 }
 
 .dark-mode .schedule-item {

@@ -5,6 +5,7 @@ const themeButton = document.getElementById("theme-button");
 const toggleDarkMode = () => {
     const isDark = document.body.classList.toggle("dark-mode");
     themeButton.textContent = isDark ? "Light Mode" : "Dark Mode";
+    themeButton.setAttribute("aria-pressed", String(isDark));
 };
 
 if (themeButton) {
@@ -136,12 +137,16 @@ document.getElementById("submit-btn")?.addEventListener("click", validateForm);
 /*** SUCCESS MODAL ***/
 
 let modalTimer;
+let modalTrigger;
 
 const showModal = (person) => {
     const modal = document.getElementById("success-modal");
     document.getElementById("modal-text").textContent =
         `🎉 Thanks for RSVPing, ${person.name}! We'll see you at HackTCU!`;
     modal.style.display = "flex";
+
+    modalTrigger = document.activeElement;
+    document.getElementById("modal-close").focus();
 
     clearTimeout(modalTimer);
     modalTimer = setTimeout(closeModal, 5000);
@@ -150,6 +155,7 @@ const showModal = (person) => {
 const closeModal = () => {
     clearTimeout(modalTimer);
     document.getElementById("success-modal").style.display = "none";
+    modalTrigger?.focus();
 };
 
 document.getElementById("modal-close")?.addEventListener("click", closeModal);
