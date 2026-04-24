@@ -81,26 +81,11 @@ document.getElementById("schedule-btn")?.addEventListener("click", () => {
 
 /*** RSVP FORM & PARTICIPANTS ***/
 
-const STORAGE_KEY = "hacktcu_participants";
-
-const loadParticipants = () => {
-    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-    saved.forEach(person => addParticipant(person, false));
-};
-
-function addParticipant(person, save = true) {
+function addParticipant(person) {
     const p = document.createElement("p");
     p.textContent = `${person.name} from ${person.school} is attending`;
     document.getElementById("participants").appendChild(p);
-
-    if (save) {
-        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-        saved.push(person);
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
-    }
 }
-
-loadParticipants();
 
 
 /*** FORM VALIDATION ***/
