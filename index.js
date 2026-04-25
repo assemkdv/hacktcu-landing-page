@@ -4,7 +4,7 @@ const themeButton = document.getElementById("theme-button");
 
 const toggleDarkMode = () => {
     const isDark = document.body.classList.toggle("dark-mode");
-    themeButton.textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
+    themeButton.textContent = isDark ? "Light Mode" : "Dark Mode";
 };
 
 if (themeButton) {
