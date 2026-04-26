@@ -1,21 +1,23 @@
-# HackTCU Landing Page
+# HackTCU 2026 Landing Page
 
-This is a responsive website I built for HackTCU 2026 as part of my project for the CodePath WEB101 course.
+A responsive event landing page for a fictional HackTCU 2026 hackathon built with HTML, CSS, and JavaScript.
 
 ## Features
 
-- Dark mode toggle
-- RSVP form with validation
-- Confirmation pop-up after submitting the form
-- Mobile-friendly layout
-- Embedded videos and event info sections
+* Responsive layout for desktop and mobile
+* Light and dark mode
+* RSVP form with client-side validation
+* Confirmation modal after successful registration
+* Dynamic participant list updates
+* Embedded event videos and schedule
+* Basic accessibility improvements and Open Graph metadata
 
 ## Built With
 
-- HTML
-- CSS
-- JavaScript
+* HTML5
+* CSS3
+* JavaScript
 
 ## About the Project
 
-The goal of this project was to create an event landing page that is both visually clean and interactive. I focused on making the site easy to navigate while also adding functionality like form validation and dynamic content updates using JavaScript.
+This project was built during the CodePath WEB101 course to practice building responsive, interactive websites without using frameworks. It focuses on clean semantic HTML, responsive CSS, and vanilla JavaScript for UI interactions such as theme switching, form validation, and modal management.
